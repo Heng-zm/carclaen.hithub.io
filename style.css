@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Khmer:wght@400;500;600&family=Open+Sans&family=Signika+Negative&display=swap');
+body {
+    display: flex;
+    height: 360px;
+    width: 90px;
+    padding: 0;
+}
+.wurth {
+    position: absolute;
+    left: 20px;
+    width: 130px;
+}
+.super {
+    position: absolute;
+    width: 60px;
+    left: 170px;
+}
+.caltex {
+    position: absolute;
+    width: 92px;
+    top: -5px;
+    left: 250px;
+}
+.h1 {
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    font-size: 18px;
+    font-family: 'Noto Serif Khmer', serif;
+}
+h2 {
+    position: absolute;
+    top: 55px;
+    left: 70px;
+    font-size: 13px;
+     font-family: 'Noto Serif Khmer', serif;
+}
+.logo {
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+}
+.ford {
+    position: absolute;
+    top: 120px;
+    width: 170px;
+}
+.total {
+    position: absolute;
+    top: 200px;
+    font-family: 'Noto Serif Khmer', serif;
+    font-size: 15px;
+    left: 50px;
+}
+.luxus {
+    position: absolute;
+    top: 125px;
+    left: 150px;
+    width: 205px;
+}
+.ls {
+    position: absolute;
+    top: 200px;
+    font-family: 'Noto Serif Khmer', serif;
+    font-size: 15px;
+    left: 230px;
+}
+.hld {
+    position: absolute;
+    width: 180px;
+    top: 250px;
+}
+.camry {
+    position: absolute;
+    width: 180px;
+    top: 250px;
+    left:180px;
+}
+.prus {
+    position: absolute;
+    width: 170px;
+    top: 390px;
+    left: 180px;
+}
+.pru {
+    position: absolute;
+    font-size: 15px;
+    top: 490px;
+    font-family: 'Noto Serif Khmer', serif;
+    left: 240px;
+}
+.tacoma {
+    width: 170px;
+    position: absolute;
+    top: 380px;
+}
+.taco {
+    position: absolute;
+    top: 490px;
+    left: 60px;
+    font-size: 15px;
+     font-family: 'Noto Serif Khmer', serif;
+}
+.hl {
+    position: absolute;
+    top: 340px;
+    font-family: 'Noto Serif Khmer', serif;
+    font-size: 15px;
+    left: 55px;
+    
+}
+.cam {
+    position: absolute;
+    top: 340px;
+    font-family: 'Noto Serif Khmer', serif;
+    font-size: 15px;
+    left: 240px;
+}
+.jpg {
+    width: 360px;
+    position: absolute;
+    left: -1px;
+    top: 620px;
+}
+.tel {
+    position: absolute;
+    top: 78px;
+    left: 90px;
+}
+.fb {
+    width: 30px;
+    position: absolute;
+    left: 40px;
+    top: 550px;
+    margin: 24px;
+    width: 30px;
+    height: 30px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.loca {
+    width: 30px;
+    position: absolute;
+    left: 240px;
+    top: 550px;
+    margin: 24px;
+    width: 30px;
+    height: 30px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.ff {
+    position: absolute;
+    top: 220px;
+    font-family: 'Open Sans', sans-serif;
+    left: 40px;
+}
+.lo {
+    position: absolute;
+    bottom: 110px;
+    font-size: 14px;
+    left: 40px;
+}
+.tele {
+    width: 30px;
+    position: absolute;
+    left: 145px;
+    top: 550px;
+    margin: 24px;
+    width: 30px;
+    height: 30px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+h5 {
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
+    font-size: 20px;
+}
+.fc {
+    position: absolute;
+    font-family: 'Signika Negative', sans-serif;
+    color: #000000;
+    font-size: 13px;
+    top: 605px;
+    left: 55px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.gram {
+    position: absolute;
+    font-family: 'Signika Negative', sans-serif;
+    top: 605px;
+    color: #000000;
+    font-size: 13px;
+    left: 158px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.on {
+    position: absolute;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 13px;
+    color: #000000;
+    top: 605px;
+    left: 257px;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.calll {
+    position: absolute;
+    width: 50px;
+    top: 658px;
+    left: 40px;
+}
+.green {
+    position: absolute;
+    height: 70px;
+    left: -1px;
+    border-radius: 5px;
+    width: 360px;
+    position: absolute;
+    top: 650px;
+}
+.lek {
+    position: absolute;
+    top: 635px;
+    font-family: 'Signika Negative', sans-serif;
+    color: #FFFFFF;
+    left: 100px;
+    font-size: 30px;
+}
