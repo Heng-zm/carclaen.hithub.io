@@ -1,44 +1,310 @@
 <!DOCTYPE html>
-<html>
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង</title>
-    <link rel="stylesheet" href="style.css"/>
     <link rel="icon" type="image/x-icon" href="Con.png"/>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Khmer', 'Nunito', sans-serif;
+            line-height: 1.5; /* Slightly tighter line height */
+            color: #333;
+            background-color: #ececec; /* Light grey background */
+            padding: 10px;
+            font-size: 14px; /* Base font size */
+        }
+
+        .main-container {
+            max-width: 420px; /* More compact width, closer to mobile-first poster */
+            margin: 15px auto;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center; /* Center header content by default */
+            margin-bottom: 20px;
+            position: relative; /* For logo positioning if needed */
+        }
+
+        .logo-main {
+            width: 80px; /* Control logo size */
+            height: auto;
+            margin-bottom: 5px; /* Space below logo if title is separate */
+        }
+        
+        .title-main {
+            font-size: 18px; /* Adjusted title font size */
+            font-weight: 700;
+            color: #E53935; /* A distinct red */
+            margin-bottom: 3px;
+        }
+
+        .subtitle-services,
+        .tel-contact {
+            font-size: 12px; /* Smaller subtitle text */
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .tel-contact {
+            font-weight: bold;
+            font-size: 13px;
+            color: #1B5E20; /* Darker green for phone */
+        }
+
+        .partner-brands {
+            display: flex;
+            justify-content: center; /* Center partner logos */
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .partner-brands img {
+            height: 30px; /* Smaller partner logos */
+            max-width: 70px;
+            object-fit: contain;
+        }
+
+
+        /* Services (Car Items) */
+        .service-items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns for services */
+            gap: 12px; /* Gap between service items */
+            margin-bottom: 20px;
+        }
+
+        .service-item-card {
+            background-color: #f9f9f9; /* Light background for cards */
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .service-item-card img {
+            width: 100%;
+            max-width: 120px; /* Max width for car images */
+            height: 75px;     /* Fixed height for car images */
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        .service-item-card .price-tag {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px; /* Price font size */
+            font-weight: bold;
+            color: #0277BD; /* A shade of blue for price */
+        }
+
+        /* Social & Location Links */
+        .actions-connect {
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 15px;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .actions-connect h3 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        .social-media-links {
+            display: flex;
+            justify-content: space-around; /* Evenly space social icons */
+            align-items: flex-start; /* Align icon with text below */
+            flex-wrap: wrap;
+            gap: 10px; /* Gap for wrapping */
+        }
+
+        .social-icon-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .social-icon-group img {
+            width: 28px; /* Smaller social icons */
+            height: 28px;
+            margin-bottom: 3px;
+            /* Keep animation as it was a feature */
+            animation: zoom-in-zoom-out 1.3s ease-in-out infinite;
+        }
+        
+        .social-icon-group p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 11px; /* Smaller text label */
+            color: #555;
+        }
+        
+        @keyframes zoom-in-zoom-out {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.12); } /* Subtle zoom */
+            100% { transform: scale(1); }
+        }
+
+        /* Call Now Section */
+        .call-now-strip {
+            background-color: #4CAF50; /* Green background */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .call-now-link {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Prominent call now text */
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
+        }
+
+        .call-now-link img {
+            width: 22px;
+            height: 22px;
+            margin-right: 8px;
+            filter: invert(1); /* Make icon white */
+        }
+        
+        .page-footer {
+            text-align: center;
+            font-size: 10px;
+            color: #777;
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        /* Minor adjustments for very small screens */
+        @media (max-width: 360px) {
+            .main-container {
+                padding: 10px;
+                margin: 10px auto;
+            }
+            .title-main {
+                font-size: 16px;
+            }
+            .subtitle-services, .tel-contact {
+                font-size: 11px;
+            }
+            .tel-contact {
+                font-size: 12px;
+            }
+            .service-items-grid {
+                grid-template-columns: 1fr; /* Stack services on very small screens */
+            }
+            .partner-brands img {
+                height: 25px;
+            }
+            .social-icon-group img {
+                width: 25px;
+                height: 25px;
+            }
+            .call-now-link {
+                font-size: 16px;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    
-    <img class="caltex" src="caltex.png"/>
-    <img class="wurth" src="worth.png"/>
-    <img class="super" src="super.png"/>
-     <h1 class="h1">មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង</h1>
-     <h2>លាងទ្បាន បោកពូក ប៊ូលា លាងម៉ាសុីន ប្ដូប្រេងម៉ាសុីន</h2>
-     <h2 class="tel">លេខទូរស័ព្ទ  015466111 / 068466111</h2>
-     <img class="logo" src="logo.png"/>
-     <img class="ford" src="Ford.png"/>
-     <h3 class="total">តម្លៃ 15000៛</h3>
-     <img class="luxus" src="luxus.png"/>
-     <h3 class="ls">តម្លៃ 20000៛</h3>
-     <img class="prus" src="prus.png"/>
-     <img class="hld" src="hld.jpg"/>
-     <h3 class="hl">តម្លៃ 14000៛</h3>
-     <img class="camry" src="camry.png"/>
-     <h3 class="pru">តម្លៃ 12000៛</h3>
-     <h3 class="cam">តម្លៃ 12000៛</h3>
-     <img class="tacoma" src="tacoma.png"/>
-     <h3 class="taco">តម្លៃ 15000៛</h3>
-     <a href="https://www.facebook.com/star.niko.5"><img class="fb"src="fb.png"/></a>
-     <a href="https://maps.app.goo.gl/7gHJ7YJAwsEsmXxU8"><img class="loca" src="loca.png"/></a>
-     <a href="#"><img class="tele" src="tele.png"></a>
-     <p class="fc">Facebook</p>
-     <p class="gram">Telegram</p>
-     <p class="on">Location</p>
-     <a href="tel:015466111"><img class="green" src="green.jpg"/></a>
-     <a href="tel:015466111"><img class="calll" src="calll.png"/></a>
-     <a href="tel:015466111"><p class="lek">Call Now</p></a>
+    <div class="main-container">
+        <header class="header">
+            <img class="logo-main" src="logo.png" alt="ម៉េងលៀង Logo"/>
+            <h1 class="title-main">មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង</h1>
+            <p class="subtitle-services">លាងទ្បាន បោកពូក ប៊ូលា លាងម៉ាសុីន ប្ដូប្រេងម៉ាសុីន</p>
+            <p class="tel-contact">លេខទូរស័ព្ទ: 015466111 / 068466111</p>
+            <div class="partner-brands">
+                <img src="caltex.png" alt="Caltex Logo"/>
+                <img src="worth.png" alt="Wurth Logo"/> <!-- Check filename: worth.png or wurth.png -->
+                <img src="super.png" alt="Super Logo"/>
+            </div>
+        </header>
 
+        <section class="service-items-grid">
+            <div class="service-item-card">
+                <img src="Ford.png" alt="Ford Car"/>
+                <p class="price-tag">តម្លៃ 15000៛</p>
+            </div>
+            <div class="service-item-card">
+                <img src="luxus.png" alt="Lexus Car"/>
+                <p class="price-tag">តម្លៃ 20000៛</p>
+            </div>
+            <div class="service-item-card">
+                <img src="hld.jpg" alt="Highlander Car"/>
+                <p class="price-tag">តម្លៃ 14000៛</p>
+            </div>
+            <div class="service-item-card">
+                <img src="camry.png" alt="Camry Car"/>
+                <p class="price-tag">តម្លៃ 12000៛</p>
+            </div>
+            <div class="service-item-card">
+                <img src="prus.png" alt="Prius Car"/>
+                <p class="price-tag">តម្លៃ 12000៛</p>
+            </div>
+            <div class="service-item-card">
+                <img src="tacoma.png" alt="Tacoma Car"/>
+                <p class="price-tag">តម្លៃ 15000៛</p>
+            </div>
+        </section>
+
+        <section class="actions-connect">
+            <h3>ភ្ជាប់ទំនាក់ទំនង</h3>
+            <div class="social-media-links">
+                <a href="https://www.facebook.com/star.niko.5" target="_blank" rel="noopener noreferrer" class="social-icon-group">
+                    <img src="fb.png" alt="Facebook Icon"/>
+                    <p>Facebook</p>
+                </a>
+                <a href="https://t.me/your_telegram_username" target="_blank" rel="noopener noreferrer" class="social-icon-group"> <!-- ** UPDATE THIS LINK ** -->
+                    <img src="tele.png" alt="Telegram Icon"/>
+                    <p>Telegram</p>
+                </a>
+                <a href="https://maps.app.goo.gl/7gHJ7YJAwsEsmXxU8" target="_blank" rel="noopener noreferrer" class="social-icon-group">
+                    <img src="loca.png" alt="Location Icon"/>
+                    <p>Location</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="call-now-strip">
+            <a href="tel:015466111" class="call-now-link">
+                <img src="calll.png" alt="Call Icon"/>
+                <span>Call Now</span>
+            </a>
+        </section>
+        
+        <footer class="page-footer">
+            <p>© <span id="currentYear"></span> មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
