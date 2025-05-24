@@ -8,9 +8,9 @@
     <link rel="icon" type="image/x-icon" href="Con.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset & Body Styles */
+        /* --- Global Resets & Base Styles --- */
         * {
             margin: 0;
             padding: 0;
@@ -19,288 +19,383 @@
 
         body {
             font-family: 'Noto Sans Khmer', 'Nunito', sans-serif;
-            line-height: 1.5; /* Slightly tighter line height */
+            line-height: 1.6;
             color: #333;
-            background-color: #ececec; /* Light grey background */
+            background-color: #f0f2f5; /* Slightly cooler background */
             padding: 10px;
-            font-size: 14px; /* Base font size */
+            font-size: 14px;
         }
 
-        .main-container {
-            max-width: 420px; /* More compact width, closer to mobile-first poster */
+        .app-container {
+            max-width: 450px; /* A bit wider for better content fit, but still mobile-centric */
             margin: 15px auto;
             background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden; /* To contain elements like sticky footer */
+        }
+
+        /* --- Utility Classes --- */
+        .text-center {
+            text-align: center;
+        }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+
+        /* --- Header Section --- */
+        .main-header {
             padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%); /* Softer gradient */
+            color: white;
+            position: relative;
         }
 
-        /* Header Section */
-        .header {
-            text-align: center; /* Center header content by default */
-            margin-bottom: 20px;
-            position: relative; /* For logo positioning if needed */
-        }
-
-        .logo-main {
-            width: 80px; /* Control logo size */
-            height: auto;
-            margin-bottom: 5px; /* Space below logo if title is separate */
-        }
-        
-        .title-main {
-            font-size: 18px; /* Adjusted title font size */
-            font-weight: 700;
-            color: #E53935; /* A distinct red */
-            margin-bottom: 3px;
-        }
-
-        .subtitle-services,
-        .tel-contact {
-            font-size: 12px; /* Smaller subtitle text */
-            color: #555;
-            margin-bottom: 4px;
-        }
-        .tel-contact {
-            font-weight: bold;
-            font-size: 13px;
-            color: #1B5E20; /* Darker green for phone */
-        }
-
-        .partner-brands {
+        .header-content {
             display: flex;
-            justify-content: center; /* Center partner logos */
             align-items: center;
             gap: 15px;
-            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .shop-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid white;
+            object-fit: cover;
+        }
+
+        .shop-info .shop-title {
+            font-size: 1.3em; /* Relative sizing */
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .shop-info .shop-services,
+        .shop-info .shop-tel {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .shop-info .shop-tel {
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .partner-logos-strip {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             padding-top: 10px;
-            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
 
-        .partner-brands img {
-            height: 30px; /* Smaller partner logos */
-            max-width: 70px;
+        .partner-logos-strip img {
+            height: 25px; /* Smaller, more subtle */
+            max-width: 60px;
             object-fit: contain;
+            filter: grayscale(50%) brightness(150%); /* Blend with header */
         }
 
 
-        /* Services (Car Items) */
-        .service-items-grid {
+        /* --- Services Section --- */
+        .services-section {
+            padding: 15px;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .section-title::after { /* Decorative underline */
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #50E3C2; /* Accent color */
+            margin: 5px auto 0;
+            border-radius: 3px;
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two columns for services */
-            gap: 12px; /* Gap between service items */
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Responsive grid, aims for 2 columns */
+            gap: 15px;
         }
 
-        .service-item-card {
-            background-color: #f9f9f9; /* Light background for cards */
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
+        .service-card {
+            background-color: #fdfdfd;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .service-card-image-wrapper {
+            width: 100%;
+            height: 100px; /* Consistent image height */
+            overflow: hidden;
+        }
+        .service-card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 'cover' can be good for varied aspect ratios */
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-card-image-wrapper img {
+            transform: scale(1.05); /* Slight zoom on image */
+        }
+
+        .service-card-content {
             padding: 10px;
             text-align: center;
         }
 
-        .service-item-card img {
-            width: 100%;
-            max-width: 120px; /* Max width for car images */
-            height: 75px;     /* Fixed height for car images */
-            object-fit: contain;
-            margin-bottom: 8px;
-        }
-
-        .service-item-card .price-tag {
+        .service-card-price {
             font-family: 'Nunito', sans-serif;
-            font-size: 14px; /* Price font size */
-            font-weight: bold;
-            color: #0277BD; /* A shade of blue for price */
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #E53935; /* Price color */
+            display: block; /* Make it a block to control margin */
+        }
+        .service-card-name { /* Optional: if you want to name services */
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 3px;
         }
 
-        /* Social & Location Links */
-        .actions-connect {
-            text-align: center;
-            padding: 15px 0;
-            margin-bottom: 15px;
-            border-top: 1px solid #f0f0f0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .actions-connect h3 {
-            font-size: 14px;
-            margin-bottom: 15px;
-            color: #444;
-            font-weight: bold;
+        /* --- Contact/Social Section --- */
+        .connect-section {
+            padding: 20px 15px;
+            background-color: #f9f9f9; /* Light section background */
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
         }
 
-        .social-media-links {
+        .social-links-wrapper {
             display: flex;
-            justify-content: space-around; /* Evenly space social icons */
-            align-items: flex-start; /* Align icon with text below */
-            flex-wrap: wrap;
-            gap: 10px; /* Gap for wrapping */
+            justify-content: space-around;
+            align-items: flex-start; /* Align top of icon with text */
         }
 
-        .social-icon-group {
+        .social-link {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: inherit;
+            color: #444;
+            transition: color 0.2s ease;
+        }
+        .social-link:hover {
+            color: #50E3C2; /* Accent color on hover */
         }
 
-        .social-icon-group img {
-            width: 28px; /* Smaller social icons */
-            height: 28px;
-            margin-bottom: 3px;
-            /* Keep animation as it was a feature */
-            animation: zoom-in-zoom-out 1.3s ease-in-out infinite;
+        .social-link img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 5px;
+            border-radius: 50%; /* Circular icons */
+            padding: 3px; /* Space for potential border on hover */
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            /* Keep original animation style as it was liked */
+            animation: zoom-in-zoom-out-subtle 1.8s ease-in-out infinite alternate;
         }
-        
-        .social-icon-group p {
+        .social-link:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .social-link span {
             font-family: 'Nunito', sans-serif;
-            font-size: 11px; /* Smaller text label */
-            color: #555;
+            font-size: 0.8em;
+            font-weight: 600;
         }
-        
-        @keyframes zoom-in-zoom-out {
+
+        @keyframes zoom-in-zoom-out-subtle { /* More subtle animation */
             0% { transform: scale(1); }
-            50% { transform: scale(1.12); } /* Subtle zoom */
-            100% { transform: scale(1); }
+            100% { transform: scale(1.08); }
         }
 
-        /* Call Now Section */
-        .call-now-strip {
-            background-color: #4CAF50; /* Green background */
-            padding: 10px;
-            border-radius: 5px;
+        /* --- Call to Action (Sticky Footer style) --- */
+        .call-now-footer {
+            background-color: #2ECC71; /* Vibrant green */
+            padding: 12px 15px;
             text-align: center;
+            /* For sticky effect if desired (might need body padding-bottom) */
+            /* position: sticky; bottom: 0; z-index: 100; */
         }
 
-        .call-now-link {
-            display: inline-flex;
+        .call-now-button {
+            display: inline-flex; /* Align icon and text */
             align-items: center;
+            justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 18px; /* Prominent call now text */
+            font-size: 1.2em;
             font-family: 'Nunito', sans-serif;
-            font-weight: bold;
+            font-weight: 700;
+            padding: 8px 20px; /* Button padding */
+            border-radius: 25px; /* Pill shape */
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .call-now-button:hover {
+            background-color: #27AE60; /* Darker green */
+            transform: scale(1.03);
         }
 
-        .call-now-link img {
-            width: 22px;
-            height: 22px;
+        .call-now-button img {
+            width: 20px;
+            height: 20px;
             margin-right: 8px;
-            filter: invert(1); /* Make icon white */
+            filter: invert(100%); /* Ensure icon is white */
         }
         
-        .page-footer {
+        /* --- Page Footer --- */
+        .page-bottom-footer {
             text-align: center;
-            font-size: 10px;
+            padding: 15px;
+            font-size: 0.8em;
             color: #777;
-            margin-top: 20px;
-            padding-top: 10px;
         }
 
-        /* Minor adjustments for very small screens */
-        @media (max-width: 360px) {
-            .main-container {
-                padding: 10px;
-                margin: 10px auto;
+        /* --- Media Queries for slight adjustments --- */
+        @media (max-width: 370px) {
+            .shop-logo {
+                width: 60px;
+                height: 60px;
             }
-            .title-main {
-                font-size: 16px;
+            .shop-info .shop-title {
+                font-size: 1.15em;
             }
-            .subtitle-services, .tel-contact {
-                font-size: 11px;
-            }
-            .tel-contact {
-                font-size: 12px;
-            }
-            .service-items-grid {
+            .services-grid {
                 grid-template-columns: 1fr; /* Stack services on very small screens */
             }
-            .partner-brands img {
-                height: 25px;
+            .social-link img {
+                width: 28px;
+                height: 28px;
             }
-            .social-icon-group img {
-                width: 25px;
-                height: 25px;
-            }
-            .call-now-link {
-                font-size: 16px;
+            .call-now-button {
+                font-size: 1.1em;
             }
         }
 
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <header class="header">
-            <img class="logo-main" src="logo.png" alt="ម៉េងលៀង Logo"/>
-            <h1 class="title-main">មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង</h1>
-            <p class="subtitle-services">លាងទ្បាន បោកពូក ប៊ូលា លាងម៉ាសុីន ប្ដូប្រេងម៉ាសុីន</p>
-            <p class="tel-contact">លេខទូរស័ព្ទ: 015466111 / 068466111</p>
-            <div class="partner-brands">
-                <img src="caltex.png" alt="Caltex Logo"/>
-                <img src="worth.png" alt="Wurth Logo"/> <!-- Check filename: worth.png or wurth.png -->
-                <img src="super.png" alt="Super Logo"/>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <img class="shop-logo" src="logo.png" alt="ម៉េងលៀង Logo"/>
+                <div class="shop-info">
+                    <h1 class="shop-title">មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង</h1>
+                    <p class="shop-services">លាងទ្បាន បោកពូក ប៊ូលា លាងម៉ាសុីន ប្ដូប្រេងម៉ាសុីន</p>
+                    <p class="shop-tel">ទូរស័ព្ទ: 015466111 / 068466111</p>
+                </div>
+            </div>
+            <div class="partner-logos-strip">
+                <img src="caltex.png" alt="Caltex"/>
+                <img src="worth.png" alt="Wurth"/> <!-- Check filename: worth.png or wurth.png -->
+                <img src="super.png" alt="Super"/>
             </div>
         </header>
 
-        <section class="service-items-grid">
-            <div class="service-item-card">
-                <img src="Ford.png" alt="Ford Car"/>
-                <p class="price-tag">តម្លៃ 15000៛</p>
-            </div>
-            <div class="service-item-card">
-                <img src="luxus.png" alt="Lexus Car"/>
-                <p class="price-tag">តម្លៃ 20000៛</p>
-            </div>
-            <div class="service-item-card">
-                <img src="hld.jpg" alt="Highlander Car"/>
-                <p class="price-tag">តម្លៃ 14000៛</p>
-            </div>
-            <div class="service-item-card">
-                <img src="camry.png" alt="Camry Car"/>
-                <p class="price-tag">តម្លៃ 12000៛</p>
-            </div>
-            <div class="service-item-card">
-                <img src="prus.png" alt="Prius Car"/>
-                <p class="price-tag">តម្លៃ 12000៛</p>
-            </div>
-            <div class="service-item-card">
-                <img src="tacoma.png" alt="Tacoma Car"/>
-                <p class="price-tag">តម្លៃ 15000៛</p>
-            </div>
-        </section>
+        <main>
+            <section class="services-section">
+                <h2 class="section-title">សេវាកម្មរបស់យើង</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                            <img src="Ford.png" alt="Ford Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 15000៛</span>
+                            <!-- <span class="service-card-name">Ford Ranger</span> -->
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                            <img src="luxus.png" alt="Lexus Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 20000៛</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                            <img src="hld.jpg" alt="Highlander Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 14000៛</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                             <img src="camry.png" alt="Camry Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 12000៛</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                            <img src="prus.png" alt="Prius Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 12000៛</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-image-wrapper">
+                            <img src="tacoma.png" alt="Tacoma Service"/>
+                        </div>
+                        <div class="service-card-content">
+                            <span class="service-card-price">តម្លៃ 15000៛</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="actions-connect">
-            <h3>ភ្ជាប់ទំនាក់ទំនង</h3>
-            <div class="social-media-links">
-                <a href="https://www.facebook.com/star.niko.5" target="_blank" rel="noopener noreferrer" class="social-icon-group">
-                    <img src="fb.png" alt="Facebook Icon"/>
-                    <p>Facebook</p>
-                </a>
-                <a href="https://t.me/your_telegram_username" target="_blank" rel="noopener noreferrer" class="social-icon-group"> <!-- ** UPDATE THIS LINK ** -->
-                    <img src="tele.png" alt="Telegram Icon"/>
-                    <p>Telegram</p>
-                </a>
-                <a href="https://maps.app.goo.gl/7gHJ7YJAwsEsmXxU8" target="_blank" rel="noopener noreferrer" class="social-icon-group">
-                    <img src="loca.png" alt="Location Icon"/>
-                    <p>Location</p>
-                </a>
-            </div>
-        </section>
+            <section class="connect-section">
+                <h2 class="section-title mb-2">ភ្ជាប់ទំនាក់ទំនង</h2>
+                <div class="social-links-wrapper">
+                    <a href="https://www.facebook.com/star.niko.5" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <img src="fb.png" alt="Facebook"/>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://t.me/your_telegram_username" target="_blank" rel="noopener noreferrer" class="social-link"> <!-- ** UPDATE THIS LINK ** -->
+                        <img src="tele.png" alt="Telegram"/>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://maps.app.goo.gl/7gHJ7YJAwsEsmXxU8" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <img src="loca.png" alt="Location"/>
+                        <span>Location</span>
+                    </a>
+                </div>
+            </section>
+        </main>
 
-        <section class="call-now-strip">
-            <a href="tel:015466111" class="call-now-link">
-                <img src="calll.png" alt="Call Icon"/>
-                <span>Call Now</span>
+        <footer class="call-now-footer">
+            <a href="tel:015466111" class="call-now-button">
+                <img src="calll.png" alt="Call"/>
+                <span>Call Now: 015466111</span>
             </a>
-        </section>
-        
-        <footer class="page-footer">
-            <p>© <span id="currentYear"></span> មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង.</p>
         </footer>
+        
+        <div class="page-bottom-footer">
+             <p>© <span id="currentYear"></span> មជ្ឈមណ្ឌលថែទាំរថយន្ត ម៉េងលៀង. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+        </div>
     </div>
 
     <script>
